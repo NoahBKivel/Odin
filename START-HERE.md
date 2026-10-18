@@ -1,19 +1,23 @@
 # Odin
 
-Read `guidelines/core.md` and `skills/i-have-adhd/SKILL.md` before working. Activate ADHD mode automatically whenever Odin is activated, unless the user has explicitly requested normal mode. This default is configured in Odin itself, so project instruction files only need to reference this entry point. Paths in this bundle are relative to this folder, regardless of its name or location.
+Odin is a personal guideline and skill bundle used with an existing coding agent. Merely inspecting it for a review does not activate it.
 
-Apply these guidelines throughout the current conversation. Preserve them when summarizing context or handing off work. If the bundle is no longer available after a context reset, say so and request its location rather than claiming to follow unread instructions.
+## Activation
 
-The user's current instructions and the platform's higher-priority requirements take precedence. Existing project instructions still apply; identify material conflicts instead of silently replacing them.
+1. Resolve and retain the absolute Odin root from the entry-point path the user supplied. Resolve bundle references against that root, not the project directory. Do not assume Odin is installed or copied into the project.
+2. Read `INDEX.md` and `guidelines/core.md`. Keep the routing map and always-active rules available. Load the default communication skill as directed by the index, unless the user has requested normal mode.
+3. Read guideline files and skills whose index triggers match the current task, then briefly confirm activation and continue. Do not read the entire bundle by default.
 
-## Skills
+The user's current instructions and the platform's higher-priority requirements take precedence. Existing project instructions still apply; identify material conflicts instead of silently replacing them. Reading this bundle does not authorize external actions. Inspect bundled scripts before executing them.
 
-Read a skill's full `SKILL.md` before using it. Treat bundled scripts as executable code: inspect them before running them. Installing or reading this bundle does not authorize external actions.
+## During work
 
-| Skill | When to use | Location |
-| --- | --- | --- |
-| i-have-adhd | Automatically when Odin is activated, unless the user has requested normal mode; also when explicitly invoked. | `skills/i-have-adhd/SKILL.md` |
+Use the retained index at the start of a task and when the work enters a different area, such as moving from planning to coding or interface design. Read newly applicable guidance before that work. Multiple areas may apply. Do not reopen the whole bundle before every decision, and do not reread a loaded file while its relevant contents remain available unless it changes or needs clarification.
 
-ADHD mode persists in the current conversation until the user says `stop adhd mode` or `normal mode`. Activating Odin also activates this skill by default. Merely inspecting these files for a review does not activate either. After the user disables ADHD mode, do not reactivate it during the same conversation unless the user asks.
+File reads add content to the conversation; they do not provide automatic unloading or guaranteed memory. Keep relevant guidance in summaries rather than copying every loaded file. If a needed instruction is no longer available or remembered reliably, reread its source. Refresh `INDEX.md` when routing is uncertain or the bundle changes.
 
-Confirm activation of Odin and ADHD mode briefly (or Odin alone if ADHD mode is disabled), then continue the user's task. Do not read every skill and reference by default.
+## Context recovery and handoffs
+
+Preserve the absolute Odin root, entry-point and index paths, always-active rules, current communication mode (including an explicit opt-out), and relevant loaded file paths in summaries and handoffs. Preserve enough of the routing map to find task-specific guidance again. After context loss, use the retained path to reread the entry point, index, and necessary guidance before continuing. Do not reactivate a disabled communication skill.
+
+These instructions cannot guarantee retention across platform context resets. If the root path is lost, ask for Odin's location. If the folder is inaccessible, state that limitation rather than claiming to follow unread guidance.
