@@ -31,7 +31,7 @@ Odin includes shared guidelines, an ADHD communication skill, and Impeccable des
    Read <absolute-path-to-Odin>/START-HERE.md and activate Odin for this conversation. Remember that Odin folder path and use its index to load relevant guidelines and skills as needed. Then continue my task.
    ```
 
-3. Continue with your task. The agent should briefly confirm that Odin, ADHD mode, and Impeccable are active, accounting for any explicit opt-outs.
+3. Continue with your task. The agent sends the complete intro together in one ASCII code block: an unboxed ODIN wordmark, current activation status, and aligned tables for modes and quick commands. The status respects explicit opt-outs. It then continues your task in the same reply.
 
 Replace the placeholder with your folder's actual absolute path. If you move or rename the folder, adjust the path in the prompt.
 
@@ -94,7 +94,7 @@ Odin/
 | Adjust how Impeccable loads and resolves commands | [skills/impeccable/SKILL.md](skills/impeccable/SKILL.md) |
 | Add a focused workflow | Create `skills/<skill-name>/SKILL.md`, then add its trigger and area to [INDEX.md](INDEX.md) |
 | Change routing or add a guideline category | [INDEX.md](INDEX.md), following [maintenance guidance](guidelines/maintenance.md) |
-| Change what loads at startup | [START-HERE.md](START-HERE.md) |
+| Change what loads at startup or the ASCII greeting | [START-HERE.md](START-HERE.md) |
 
 Keep file references relative so the folder stays portable. Give each new skill a clear purpose and activation condition so the agent knows when to use it.
 
