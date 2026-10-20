@@ -2,7 +2,8 @@
 
 ### Your preferences. Your workflows. Across projects.
 
-Odin gives your coding agent a shared set of instructions: how to work, how to communicate, and which focused skills to use. Keep them in one readable folder, bring it into a project, and tell your agent where to start.
+Odin is a personalized plug-and-play package of platform independent skills, guidelines, workflows, and design instructions.
+Tailored to my exact workflow.
 
 **Plain Markdown · No package installation · Portable · MIT licensed**
 
