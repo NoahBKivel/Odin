@@ -5,8 +5,8 @@ Odin is a personal guideline and skill bundle used with an existing coding agent
 ## Activation
 
 1. Resolve and retain the absolute Odin root from the entry-point path the user supplied. Resolve bundle references against that root, not the project directory. Do not assume Odin is installed or copied into the project.
-2. Read `INDEX.md` and `guidelines/core.md`. Keep the routing map and always-active rules available. Load the default communication skill as directed by the index, unless the user has requested normal mode.
-3. Read guideline files and skills whose index triggers match the current task, then briefly confirm activation and continue. Do not read the entire bundle by default.
+2. Read `INDEX.md` and `guidelines/core.md`. Keep the routing map and always-active rules available. Load the default skills as directed by the index: the communication skill unless normal mode was requested, and Impeccable unless explicitly disabled. Follow the Impeccable entry point to read its upstream instructions; defer its runtime setup until an applicable design task or requested command.
+3. Read guideline files and skills whose index triggers match the current task, then briefly confirm Odin activation and the enabled default skills and continue. Do not read the entire bundle by default.
 
 The user's current instructions and the platform's higher-priority requirements take precedence. Existing project instructions still apply; identify material conflicts instead of silently replacing them. Reading this bundle does not authorize external actions. Inspect bundled scripts before executing them.
 
@@ -18,6 +18,6 @@ File reads add content to the conversation; they do not provide automatic unload
 
 ## Context recovery and handoffs
 
-Preserve the absolute Odin root, entry-point and index paths, always-active rules, current communication mode (including an explicit opt-out), and relevant loaded file paths in summaries and handoffs. Preserve enough of the routing map to find task-specific guidance again. After context loss, use the retained path to reread the entry point, index, and necessary guidance before continuing. Do not reactivate a disabled communication skill.
+Preserve the absolute Odin root, entry-point and index paths, always-active rules, current communication mode (including an explicit opt-out), Impeccable's enabled state and runtime setup state, and relevant loaded file paths in summaries and handoffs. Preserve enough of the routing map to find task-specific guidance again. After context loss, use the retained path to reread the entry point, index, and necessary guidance before continuing. Do not reactivate a disabled default skill.
 
 These instructions cannot guarantee retention across platform context resets. If the root path is lost, ask for Odin's location. If the folder is inaccessible, state that limitation rather than claiming to follow unread guidance.
