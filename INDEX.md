@@ -20,4 +20,4 @@ Skills are procedures or specialized behavior, while guidelines express standing
 | Skill | Area | Trigger and duration | Path |
 | --- | --- | --- | --- |
 | i-have-adhd | Communication | Load at activation unless normal mode was requested. Remains active until the user says stop adhd mode or normal mode; reactivate only on request. | `skills/i-have-adhd/SKILL.md` |
-| impeccable | Design, frontend, UX | Load at activation unless explicitly disabled. Apply its defaults to interface work; accept manual Impeccable commands throughout the conversation. Defer runtime setup until an applicable task or requested command. | `skills/impeccable/SKILL.md` |
+| impeccable | Design, frontend, UX | Load automatically when UI/UX work begins, or on explicit invocation, unless disabled. Apply only to the relevant task portion. Full onboarding and runtime setup require explicit invocation as defined in the adapter. | `skills/impeccable/SKILL.md` |

@@ -5,7 +5,7 @@ Odin is a personal guideline and skill bundle used with an existing coding agent
 ## Activation
 
 1. Resolve and retain the absolute Odin root from the entry-point path the user supplied. Resolve bundle references against that root, not the project directory. Do not assume Odin is installed or copied into the project.
-2. Read `INDEX.md` and `guidelines/core.md`. Keep the routing map and always-active rules available. Load the default skills as directed by the index: the communication skill unless normal mode was requested, and Impeccable unless explicitly disabled. Follow the Impeccable entry point to read its upstream instructions; defer its runtime setup until an applicable design task or requested command.
+2. Read `INDEX.md` and `guidelines/core.md`. Keep the routing map and always-active rules available. Load the communication skill unless normal mode was requested. Route other skills by the current task: Impeccable loads for UI/UX work or explicit invocation, not at every activation. Follow its adapter to keep onboarding and runtime setup explicitly invoked.
 3. Read guideline files and skills whose index triggers match the current task, then give the activation response below and continue. Do not read the entire bundle by default.
 
 The user's current instructions and the platform's higher-priority requirements take precedence. Existing project instructions still apply; identify material conflicts instead of silently replacing them. Reading this bundle does not authorize external actions. Inspect bundled scripts before executing them.
@@ -14,7 +14,7 @@ The user's current instructions and the platform's higher-priority requirements 
 
 After loading the required guidance, send the entire predefined intro below together in one reply and one fenced `text` block. Keep the ODIN wordmark unboxed. Preserve the wording, textured lettering, table layout, and order. Do not split the banner, status, or guide across messages or code blocks, or print parts as separate progress updates.
 
-Substitute `{odin_status}` with `ACTIVE` after successful loading or `PARTIALLY LOADED` if required guidance could not be loaded. Replace `{adhd}` and `{design}` with each skill's actual state: `on`, `off`, or `unavailable`, respecting explicit opt-outs. Pad the state cells with spaces to keep their columns aligned. If loading failed, add one brief `Loading:` explanation inside the same block immediately after the status line.
+Substitute `{odin_status}` with `ACTIVE` after successful loading or `PARTIALLY LOADED` if required guidance could not be loaded. Replace `{adhd}` with `on`, `off`, or `unavailable`. Replace `{design}` with `on demand` when available but outside UI work, `on` while applying it to UI work, `off` when explicitly disabled, or `unavailable` when needed files cannot be loaded. Respect explicit opt-outs. Pad the state cells with spaces to keep their columns aligned. If loading failed, add one brief `Loading:` explanation inside the same block immediately after the status line.
 
 The commands are reference text, not requests to execute them during activation. This template is the authoritative intro; reproduce it instead of composing a new summary.
 
@@ -48,7 +48,8 @@ QUICK COMMANDS
 | normal mode                       | Turn ADHD mode off              |
 | enable ADHD mode                  | Turn ADHD mode on               |
 | disable Impeccable                | Turn design guidance off        |
-| enable Impeccable                 | Turn design guidance on         |
+| enable Impeccable                 | Enable UI task routing          |
+| /impeccable init                  | Product onboarding and setup    |
 | /impeccable                       | Browse design commands          |
 | /impeccable shape [feature]       | Plan UX/UI before coding        |
 | /impeccable audit [target]        | Accessibility, speed, resizing  |
@@ -69,6 +70,6 @@ File reads add content to the conversation; they do not provide automatic unload
 
 ## Context recovery and handoffs
 
-Preserve the absolute Odin root, entry-point and index paths, always-active rules, current communication mode (including an explicit opt-out), Impeccable's enabled state and runtime setup state, and relevant loaded file paths in summaries and handoffs. Preserve enough of the routing map to find task-specific guidance again. After context loss, use the retained path to reread the entry point, index, and necessary guidance before continuing. Do not reactivate a disabled default skill.
+Preserve the absolute Odin root, entry-point and index paths, always-active rules, current communication mode (including an explicit opt-out), Impeccable's enabled state and runtime setup state, and relevant loaded file paths in summaries and handoffs. Preserve enough of the routing map to find task-specific guidance again. After context loss, use the retained path to reread the entry point, index, and necessary guidance before continuing. Do not reactivate a disabled skill. Restore task-specific guidance only when applicable.
 
 These instructions cannot guarantee retention across platform context resets. If the root path is lost, ask for Odin's location. If the folder is inaccessible, state that limitation rather than claiming to follow unread guidance.

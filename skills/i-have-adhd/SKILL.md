@@ -99,11 +99,11 @@ Never use "Uh oh," "Oh no," or "There seems to be a problem." State cause and fi
 Bad: "Uh oh, the test is failing. There seems to be an issue..."
 Good: "Test fails at `auth.spec.ts:42`: expected 200, got 401. Cause: missing auth header. Fix: add `Authorization: Bearer ${token}` to the request."
 
-### 9. Cap lists to 5 items
+### 9. Use five points as a starting guideline
 
-For long lists in the final response, group related items and rank the most relevant first. Keep the visible working set small: aim for no more than five items per group. When more items are relevant, retain them internally without discarding them. Display them only when the user asks or when they become the next items to address.
+Start with roughly five bullets or numbered steps when that fits the response. Five is a starting point, not a hard limit or a required count. Use more points whenever the response needs them for clarity, completeness, or a usable sequence of steps. Do not hide relevant points, wait for the user to ask for them, or combine distinct steps just to stay under five.
 
-Never omit relevant items when completeness matters. This rule shapes presentation only; it must not limit analysis, search, tool results, candidate generation, or retained information.
+Keep each point focused. Group related items and prioritize the most useful information when that improves readability. This guideline shapes presentation; it must not limit analysis, search, tool results, candidate generation, or retained information.
 
 ### 10. No preamble, no recap, no closing pleasantries
 

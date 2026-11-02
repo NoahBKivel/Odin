@@ -20,7 +20,7 @@ Tailored to my exact workflow.
 | **Focused skills** | Add instructions for specific workflows or needs. |
 | **One entry point** | Give the agent a single file to read first. |
 
-Odin includes shared guidelines, an ADHD communication skill, and Impeccable design guidance. Both skills load by default when Odin is activated; Impeccable applies to interface work and also accepts manual commands.
+Odin includes shared guidelines, an ADHD communication skill, and Impeccable design guidance. The ADHD skill loads by default. Impeccable loads automatically for UI/UX work or explicit invocation, and stops applying outside interface work.
 
 ## Get started
 
@@ -49,9 +49,11 @@ You can also say `stop adhd mode`. It stays off in that conversation unless you 
 
 ### Impeccable
 
-Enabled by default when Odin is activated, Impeccable guides interface design, implementation, and review. Its context setup runs when an applicable task begins. Its other playbooks load as needed.
+Impeccable loads when interface design, implementation, or review begins, unless explicitly disabled. Ordinary UI work uses existing project context and relevant design guidance without running setup. The greeting shows `on demand` when it is available but outside UI work.
 
-You can also request commands manually, for example:
+Full product onboarding, saved design workflow preferences, and live-mode setup are reserved for explicit invocation. Use `/impeccable init` for product onboarding; a missing `PRODUCT.md` does not automatically start an interview. Explicit commands can run the context launcher and their required tools, but do not silently opt you into init.
+
+Request commands manually, for example:
 
 ```text
 /impeccable audit settings
@@ -78,7 +80,7 @@ Odin/
 │   └── maintenance.md    Guidance for changing Odin
 ├── skills/
 │   ├── i-have-adhd/      ADHD communication skill and its license
-│   ├── impeccable/      Odin entry point for default design guidance
+│   ├── impeccable/      Odin adapter for task-specific design guidance
 │   └── impeccable-main/ Bundled upstream Impeccable repository
 ├── README.md
 └── LICENSE.txt
@@ -96,6 +98,12 @@ Odin/
 | Change routing or add a guideline category | [INDEX.md](INDEX.md), following [maintenance guidance](guidelines/maintenance.md) |
 | Change what loads at startup or the ASCII greeting | [START-HERE.md](START-HERE.md) |
 
+Some bundled premade skills are modified to suit this personal workflow. The ADHD skill is a locally maintained adaptation, including a flexible five-point guideline that allows more bullets or steps when needed. Impeccable's Odin-specific loading and onboarding behavior lives in its adapter at `skills/impeccable/SKILL.md`; the bundled upstream files remain unchanged. Bundled behavior can therefore differ from the original projects.
+
+For a locally maintained skill, edit its own instructions when changing its behavior so there is one authoritative rule. Use an adapter for Odin-specific integration with a separately maintained upstream skill. Preserve source credits and license notices, and review local customizations before replacing bundled skills with upstream updates.
+
+**Working on Odin itself:** Read [guidelines/maintenance.md](guidelines/maintenance.md) before making changes. It defines the bundle's maintenance patterns and structure: where rules belong, how skills are routed, how to preserve customizations, and when to update the startup intro. [INDEX.md](INDEX.md) is the routing authority; [START-HERE.md](START-HERE.md) defines activation and context recovery.
+
 Keep file references relative so the folder stays portable. Give each new skill a clear purpose and activation condition so the agent knows when to use it.
 
 Guidelines are grouped by task area. Skills stay in their own folders, with task-area tags and triggers in the index so one skill can apply to several areas without duplication. Planning loads guidance for the work being planned; a separate planning file can be added when it has distinct rules.
@@ -104,7 +112,7 @@ Guidelines are grouped by task area. Skills stay in their own folders, with task
 
 Odin's routing works through files your agent can read. No package installation or global configuration is required for that routing. Impeccable's executable features use its engine as described above.
 
-At activation, the agent reads the entry point, index, always-active rules, default communication skill, and Impeccable entry point plus upstream skill instructions, subject to explicit opt-outs. It loads supporting references and other guidance when the current task or a change in task area matches an index trigger. It uses already-loaded instructions during work rather than rereading the bundle before every decision.
+At activation, the agent reads the entry point, index, always-active rules, and default communication skill, subject to explicit opt-outs. Core rules include lightweight project understanding: read relevant existing context, preserve confirmed constraints, and ask about consequential gaps without a mandatory interview or setup. Impeccable loads only when UI/UX work or explicit invocation calls for it. It loads supporting references and other guidance when the current task or a change in task area matches an index trigger. It uses already-loaded instructions during work rather than rereading the bundle before every decision.
 
 The agent is instructed to preserve Odin's absolute folder path, routing information, communication mode, and Impeccable state through summaries and handoffs, then reread needed files after context loss. This is instruction-based routing, not automatic retrieval or guaranteed memory. Reading a file adds it to conversation context; it does not automatically unload later. If the folder path is lost, the agent must ask for it again.
 
